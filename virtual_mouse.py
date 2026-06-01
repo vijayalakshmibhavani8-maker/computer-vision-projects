@@ -1,6 +1,7 @@
 import cv2
 import mediapipe as mp
 import pyautogui
+import math
 
 mp_hands = mp.solutions.hands
 mp_draw = mp.solutions.drawing_utils
@@ -39,9 +40,26 @@ while True:
             y = int(hand_landmarks.landmark[8].y * h)
             screen_x = screen_w * hand_landmarks.landmark[8].x
             screen_y = screen_h * hand_landmarks.landmark[8].y
+            x2 = int(hand_landmarks.landmark[12].x * w)
+            y2 = int(hand_landmarks.landmark[12].y * h)
 
             pyautogui.moveTo(screen_x, screen_y)
             cv2.circle(img, (x, y), 10, (0, 255, 0), cv2.FILLED)
+            cv2.circle(img, (x2, y2), 10, (0, 0, 255), cv2.FILLED)
+            distance = math.hypot(x2 - x, y2 - y)
+
+        if distance < 30:
+            pyautogui.click()
+    cv2.putText(
+        img,
+        "CLICK",
+        (20, 150),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        1,
+        (0, 255, 0),
+        2
+    )
+    
 
     cv2.imshow("Virtual Mouse", img)
 
