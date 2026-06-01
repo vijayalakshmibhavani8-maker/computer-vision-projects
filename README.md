@@ -1,11 +1,24 @@
-# Face Detection Project
+# Computer Vision Projects
 
-This project detects faces in real time using Python and OpenCV.
+This repository contains beginner Computer Vision projects built using Python, OpenCV, and MediaPipe.
 
-## Requirements
-- Python 3.12
+## Projects
+
+### 1. Face Detection
+Detects faces in real time using OpenCV.
+
+### 2. Hand Tracking
+Tracks hand landmarks and displays hand connections.
+
+### 3. Finger Counter
+Counts the number of fingers shown to the camera in real time.
+
+## Technologies Used
+
+- Python
 - OpenCV
+- MediaPipe
 
-## Run
+## Author
 
-python face_detection.py
+Amala
